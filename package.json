@@ -6,7 +6,7 @@
   "icon": "./index.jpeg",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HussamAdil/Ayat.git"
+    "url": "git+https://github.com/Abdullahmokbl/islamic_extension"
   },
   "engines": {
     "vscode": "^1.76.0"
