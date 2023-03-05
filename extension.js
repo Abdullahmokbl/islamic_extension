@@ -86,28 +86,14 @@ function activate(context) {
         )
       })
   }, intervalMS)
+
+  // let disposable = vscode.commands.registerCommand('islamic.helloWorld', function () {
+  //   // Display a message box to the user
+  //   vscode.window.showInformationMessage('s Hello World from Islamic!')
+  // })
+
+  // context.subscriptions.push(disposable)
 }
-
-// console.log('Congratulations, your extension "islamic" is now active!')
-// vscode.window.showInformationMessage('hello')
-// const array = [
-//   'اللهم صل على محمد وعلى آل محمد',
-//   'الحمد لله',
-//   'الله أكبر',
-//   'سبحان الله',
-//   'لا إله إلا الله',
-//   'لا إله إلا الله وحده لا شريك له، له الملك وله الحمد، وهو على كل شيء قدير',
-//   'اللهم إني أعوذ بك من الهم والحزن، والعجز والكسل، والجبن والبخل، وغلبة الدين وقهر الرجال',
-//   'لا إله إلا الله وحده لا شريك له، له الملك وله الحمد، وهو على كل شيء قدير',
-//   'أستغفر الله',
-// ]
-
-// let disposable = vscode.commands.registerCommand('islamic.helloWorld', function () {
-//   // Display a message box to the user
-//   vscode.window.showInformationMessage('Hello World from Islamic!')
-// })
-
-// context.subscriptions.push(disposable)
 
 function deactivate() {}
 

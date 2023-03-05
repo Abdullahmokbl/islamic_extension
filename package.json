@@ -1,7 +1,8 @@
 {
   "name": "islamic",
   "displayName": "Islamic",
-  "description": "",
+  "publisher": "abdullahmokbl",
+  "description": "Get a verse(an aya) from the Quran during your coding session",
   "version": "0.0.1",
   "icon": "./index.jpeg",
   "repository": {
@@ -22,7 +23,7 @@
         "command": "islamic.getAya",
         "category": "Islamic",
         "title": "Get Aya",
-        "icon": "images/icon.png"
+        "icon": "./index.jpeg"
       }
     ],
     "configuration": {
