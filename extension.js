@@ -5,6 +5,16 @@ const axios = require('axios')
  * @param {vscode.ExtensionContext} context
  */
 
+function getTime(time) {
+  const hours = time.getHours()
+  const ampm = hours >= 12 ? 'pm' : 'am'
+  return ampm
+}
+
+const dayOrNight = getTime(new Date())
+const sabahORMassa = dayOrNight === 'pm' ? 'massa' : 'sabah'
+let azkarData = require(`./azkar/azkar_${sabahORMassa}.json`)
+
 function GetRandomAyaNumber() {
   const ayaMin = 1
   const ayaMax = 6236
@@ -30,9 +40,9 @@ async function getRandomAya() {
   let content = ''
 
   try {
-    let ayaLang = getUserLanguage()
+    let lang = getUserLanguage()
 
-    let response = await axios.get(`http://api.alquran.cloud/v1/ayah/${randomAyaNumber}/${ayaLang}.asad`)
+    let response = await axios.get(`http://api.alquran.cloud/v1/ayah/${randomAyaNumber}/${lang}.asad`)
 
     let aya = response.data.data.text
 
@@ -58,36 +68,41 @@ const getRandomHadith = async () => {
         'X-API-Key': 'SqD712P3E82xnwOAEOkGd5JZH8s9wRR24TqNFzjk',
       },
     })
-    // // Select Muslim language
-    // const muslimLanguage = vscode.workspace
-    //   .getConfiguration("hadith")
-    //   .get("language");
 
-    let hadithLang = getUserLanguage()
+    let lang = getUserLanguage()
 
-    hadithLang === 'ar'
-      ? (hadith = `✨ ${data.hadith[1].body.slice(3, -4)}`)
-      : (hadith = `✨ ${data.hadith[0].body.slice(3, -4)}`)
+    lang === 'ar' ? (hadith = `✨ ${data.hadith[1].body.slice(3, -4)}`) : (hadith = `✨ ${data.hadith[0].body.slice(3, -4)}`)
   } catch (error) {}
 
   return hadith
 }
 
-const getRandomAzkar = async () => {}
+const getRandomAzkar = async () => {
+  let zekr
+
+  try {
+    let total = azkarData.content.length
+    const rand = Math.floor(Math.random() * total)
+    zekr = azkarData.content[rand].zekr + ` ✨ (${azkarData.content[rand].repeat} مرة)`
+  } catch (e) {
+    zekr = 'سُبْحـانَ اللهِ وَبِحَمْـدِهِ. ✨ (مائة مرة)'
+  }
+
+  return zekr
+}
 
 let num = 1
 function activate(context) {
-  // let interval = vscode.workspace.getConfiguration('islamic').get('interval')
+  let interval = vscode.workspace.getConfiguration('islamic').get('interval')
 
-  // let intervalMS = interval * 60000
-  let intervalMS = 10000
+  let intervalMS = interval * 60000
 
   setInterval(async function () {
-    if (num > 2) num = 1
+    if (num > 3) num = 1
     let data
     if (num === 1) data = await getRandomAya()
     else if (num === 2) data = await getRandomHadith()
-    // else data = await getRandomAzkar()
+    else data = await getRandomAzkar()
     num++
 
     vscode.window.withProgress(

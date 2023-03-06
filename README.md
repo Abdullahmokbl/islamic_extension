@@ -15,6 +15,8 @@ Get a verse(an aya), hadith or azkar during your coding session.
 
 - Get random hadith. ✅
 
+- Get random azkar. ✅
+
 - Arabic | English supported . ✅
 
 - Offline mode supported. ✅
@@ -24,6 +26,8 @@ Get a verse(an aya), hadith or azkar during your coding session.
 - Linux | Window | Mac Supported. ✅
 
 - Command supported.✅
+
+### 1.0.1
 
 - Autostart with vscode. ✅
 
