@@ -3,7 +3,7 @@
   "displayName": "Islamic",
   "publisher": "abdullahmokbl",
   "description": "Get a verse(an aya) from the Quran during your coding session",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "icon": "./index.jpeg",
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": ["*"],
   "main": "./extension.js",
   "contributes": {
     "commands": [
