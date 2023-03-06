@@ -3,7 +3,7 @@
   "displayName": "Islamic",
   "publisher": "abdullahmokbl",
   "description": "Get a verse(an aya), hadith or azkar during your coding session",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "icon": "./index.jpeg",
   "repository": {
     "type": "git",
@@ -43,6 +43,8 @@
           "type": "number",
           "default": 10,
           "enum": [
+            1,
+            5,
             10,
             15,
             30,
@@ -51,7 +53,19 @@
             120,
             180
           ],
-          "description": "Select time between notification."
+          "description": "Select time between notification by minutes."
+        },
+        "islamic.time": {
+          "type": "number",
+          "default": 7,
+          "enum": [
+            7,
+            10,
+            30,
+            60,
+            300
+          ],
+          "description": "Select notification time by seconds."
         },
         "islamic.language": {
           "type": "string",

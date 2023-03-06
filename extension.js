@@ -60,7 +60,7 @@ async function getRandomAya() {
 
 const getRandomHadith = async () => {
   let hadith =
-    '✨ إِنَّ اللَّهَ وَمَلائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ يَا أَيُّهَا الَّذِينَ آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا'
+    ' إِنَّ اللَّهَ وَمَلائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ يَا أَيُّهَا الَّذِينَ آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا ✨ غير متصل بالشبكة'
 
   try {
     const { data } = await axios.get(`https://api.sunnah.com/v1/hadiths/random`, {
@@ -85,7 +85,7 @@ const getRandomAzkar = async () => {
     const rand = Math.floor(Math.random() * total)
     zekr = azkarData.content[rand].zekr + ` ✨ (${azkarData.content[rand].repeat} مرة)`
   } catch (e) {
-    zekr = 'سُبْحـانَ اللهِ وَبِحَمْـدِهِ. ✨ (مائة مرة)'
+    zekr = 'سُبْحـانَ اللهِ وَبِحَمْـدِهِ. (مائة مرة) ✨ غير متصل بالشبكة'
   }
 
   return zekr
@@ -94,6 +94,7 @@ const getRandomAzkar = async () => {
 let num = 1
 function activate(context) {
   let interval = vscode.workspace.getConfiguration('islamic').get('interval')
+  let time = vscode.workspace.getConfiguration('islamic').get('time')
 
   let intervalMS = interval * 60000
 
@@ -113,41 +114,26 @@ function activate(context) {
       },
       async progress => {
         progress.report({ increment: 0 })
-        await new Promise(resolve => setTimeout(resolve, 10000))
+        await new Promise(resolve => setTimeout(resolve, time))
         progress.report({ increment: 100, message: 'Done!' })
       }
     )
-
-    // getRandomHadith()
-    //   .then(function (response) {
-    //     vscode.window.withProgress(
-    //       {
-    //         location: vscode.ProgressLocation.Notification,
-    //         title: response,
-    //         cancellable: true,
-    //       },
-    //       async progress => {
-    //         progress.report({ increment: 0 })
-    //         await new Promise(resolve => setTimeout(resolve, 10000))
-    //         progress.report({ increment: 100, message: 'Done!' })
-    //       }
-    //     )
-    //   })
-    //   .catch(function () {
-    //     vscode.window.withProgress(
-    //       {
-    //         location: vscode.ProgressLocation.Notification,
-    //         title: 'Error while activating islamic :( ',
-    //         cancellable: true,
-    //       },
-    //       async progress => {
-    //         progress.report({ increment: 0 })
-    //         await new Promise(resolve => setTimeout(resolve, 10000))
-    //         progress.report({ increment: 100, message: 'Done!' })
-    //       }
-    //     )
-    //   })
   }, intervalMS)
+
+  let disposable = vscode.commands.registerCommand('islamic.getAya', async () => {
+    const data = await getRandomAya()
+    vscode.window.showInformationMessage(data)
+  })
+  let disposable = vscode.commands.registerCommand('islamic.getHadith', async () => {
+    const data = await getRandomHadith()
+    vscode.window.showInformationMessage(data)
+  })
+  let disposable = vscode.commands.registerCommand('islamic.getAzkar', async () => {
+    const data = await getRandomAzkar()
+    vscode.window.showInformationMessage(data)
+  })
+
+  context.subscriptions.push(disposable)
 }
 
 function deactivate() {}

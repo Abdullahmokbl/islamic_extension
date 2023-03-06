@@ -27,13 +27,13 @@ Get a verse(an aya), hadith or azkar during your coding session.
 
 - Command supported.✅
 
-### 1.0.1
+### 1.0.3
 
 - Autostart with vscode. ✅
 
 - Custom timer supported. ✅
 
-## How to configure notification timer
+## How to configure notification language
 
 Go to File -> select -> preference -> settings
 
@@ -45,9 +45,29 @@ Go to File -> select -> preference -> settings
 
 - Search for "Islamic" then set your own timer:
 
-  - Default value is 15 minutes.
+  - Default value for time between notification is 10 minutes.
+
+  - Default value for notification time is 7 seconds.
 
     <!-- ![image info](./images/preview.gif) -->
+
+## How to get random aya
+
+Go to View -> Command Palette
+
+- Type Get Aya
+
+## How to get random hadith
+
+Go to View -> Command Palette
+
+- Type Get Hadith
+
+## How to get random azkar
+
+Go to View -> Command Palette
+
+- Type Get Azkar
 
 ## Contributing 🧑‍💻
 
@@ -67,6 +87,8 @@ Contributions are always welcome!
 - [Hadith Api](https://api.sunnah.com/)
 
 ## Contact Me
+
+- [Github ](https://github.com/Abdullahmokbl)
 
 - [Facebook ](https://www.facebook.com/abdullahmokbl)
 
