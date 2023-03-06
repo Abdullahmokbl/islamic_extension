@@ -2,19 +2,16 @@
   "name": "islamic",
   "displayName": "Islamic",
   "publisher": "abdullahmokbl",
-  "description": "Get a verse(an aya) from the Quran during your coding session",
-  "version": "1.0.1",
+  "description": "Get a verse(an aya), hadith or azkar during your coding session",
+  "version": "1.0.2",
   "icon": "./index.jpeg",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Abdullahmokbl/islamic_extension"
   },
-  "engines": {
-    "vscode": "^1.76.0"
-  },
-  "categories": [
-    "Other"
-  ],
+  "engines": {"vscode": "^1.76.0"},
+  "categories": ["Other"],
+  "keywords": ["quran","aya","hadith","azkar","muslim"],
   "activationEvents": ["*"],
   "main": "./extension.js",
   "contributes": {
@@ -23,6 +20,18 @@
         "command": "islamic.getAya",
         "category": "Islamic",
         "title": "Get Aya",
+        "icon": "./index.jpeg"
+      },
+      {
+        "command": "islamic.getHadith",
+        "category": "Islamic",
+        "title": "Get Hadith",
+        "icon": "./index.jpeg"
+      },
+      {
+        "command": "islamic.getAzkar",
+        "category": "Islamic",
+        "title": "Get Azkar",
         "icon": "./index.jpeg"
       }
     ],
