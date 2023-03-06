@@ -32,9 +32,8 @@
       "properties": {
         "islamic.interval": {
           "type": "number",
-          "default": 0.1,
+          "default": 10,
           "enum": [
-            0.1,
             10,
             15,
             30,
@@ -43,7 +42,7 @@
             120,
             180
           ],
-          "description": "Select time between ayat notification."
+          "description": "Select time between notification."
         },
         "islamic.language": {
           "type": "string",
