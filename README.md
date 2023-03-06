@@ -27,11 +27,13 @@ Get a verse(an aya), hadith or azkar during your coding session.
 
 - Command supported.✅
 
-### 1.0.3
+### 1.0.4
 
 - Autostart with vscode. ✅
 
 - Custom timer supported. ✅
+
+- Fix some issues. ✅
 
 ## How to configure notification language
 

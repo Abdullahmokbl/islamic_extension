@@ -120,20 +120,22 @@ function activate(context) {
     )
   }, intervalMS)
 
-  let disposable = vscode.commands.registerCommand('islamic.getAya', async () => {
+  let getAya = vscode.commands.registerCommand('islamic.getAya', async () => {
     const data = await getRandomAya()
     vscode.window.showInformationMessage(data)
   })
-  let disposable = vscode.commands.registerCommand('islamic.getHadith', async () => {
+  let getHadith = vscode.commands.registerCommand('islamic.getHadith', async () => {
     const data = await getRandomHadith()
     vscode.window.showInformationMessage(data)
   })
-  let disposable = vscode.commands.registerCommand('islamic.getAzkar', async () => {
+  let getAzkar = vscode.commands.registerCommand('islamic.getAzkar', async () => {
     const data = await getRandomAzkar()
     vscode.window.showInformationMessage(data)
   })
 
-  context.subscriptions.push(disposable)
+  context.subscriptions.push(getAya)
+  context.subscriptions.push(getHadith)
+  context.subscriptions.push(getAzkar)
 }
 
 function deactivate() {}
