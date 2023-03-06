@@ -114,7 +114,7 @@ function activate(context) {
       },
       async progress => {
         progress.report({ increment: 0 })
-        await new Promise(resolve => setTimeout(resolve, time))
+        await new Promise(resolve => setTimeout(resolve, time * 1000))
         progress.report({ increment: 100, message: 'Done!' })
       }
     )

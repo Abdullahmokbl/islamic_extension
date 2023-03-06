@@ -3,7 +3,7 @@
   "displayName": "Islamic",
   "publisher": "abdullahmokbl",
   "description": "Get a verse(an aya), hadith or azkar during your coding session",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "icon": "./index.jpeg",
   "repository": {
     "type": "git",
